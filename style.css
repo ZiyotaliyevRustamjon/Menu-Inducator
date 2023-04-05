@@ -1,0 +1,129 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #454545;
+}
+.navigation{
+    position: relative;
+    width: 800px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffe6c7;
+    border-radius: 10px;
+}
+.navigation ul{
+    position: relative;
+    display: flex;
+    width: 350px;
+}
+.navigation ul li{
+    position: relative;
+    list-style: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+}
+.navigation ul li a{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+.navigation ul li a .icon{
+    position: relative;
+    display: flex;
+    font-size: 2em;
+    line-height: 75px;
+    transition: 0.5s;
+    color: #ffa559;
+}
+.navigation ul li.active a .icon{
+    color: #ffa559;
+    transform: translateY(-8px);
+}
+.navigation ul li a .text{
+    position: absolute;
+    opacity: 0;
+    font-weight: 600;
+    font-size: 0.7em;
+    color: #222327;
+    transition: 0.5s;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transform: translateY(0px);
+}
+.navigation ul li.active a .text{
+    transform: translateY(27px);
+    opacity: 1;
+}
+.inducator{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: 0.5s;
+}
+.inducator::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    background-color: #ffa559;
+    border-radius: 10px;
+    bottom: -5px;
+}
+.inducator::after{
+    content: '';
+    position: absolute;
+    width: 7.5px;
+    height: 7.5px;
+    background: #454545;
+    box-shadow: 0 0 0 2px #ffa559,
+    60px 60px #ffa559,
+    40px 0 #ffa559,
+    0 40px #ffa559;
+    top: -3px;
+    border-radius: 50%;
+    transform: rotate(45deg);
+    animation: anime 2s ease-in-out infinite;
+}
+.navigation ul li:hover a .icon{
+    color: #454545;
+}
+
+@keyframes anime{
+    0%, 100%{
+        transform: rotate(35deg);
+    }
+    50%{
+        transform: rotate(55deg);
+    }
+}
+.navigation ul li:nth-child(2).active ~ .inducator{
+    transform: translateX(calc(70px * 1));
+}
+.navigation ul li:nth-child(3).active ~ .inducator{
+    transform: translateX(calc(70px * 2));
+}
+.navigation ul li:nth-child(4).active ~ .inducator{
+    transform: translateX(calc(70px * 3));
+}
+.navigation ul li:nth-child(5).active ~ .inducator{
+    transform: translateX(calc(70px * 4));
+}
